@@ -11,6 +11,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.ChunkPos;
 import spatularat.lonelynation.client.data.ChunkData;
 import spatularat.lonelynation.client.data.JsonFileManager;
+import spatularat.lonelynation.client.data.ServerInfo;
 import spatularat.lonelynation.client.data.WorldData;
 
 public class NationClaimCommand {
@@ -19,15 +20,15 @@ public class NationClaimCommand {
                 .executes(context -> {
                     MinecraftClient client = MinecraftClient.getInstance();
 
-                    WorldData worldData = JsonFileManager.loadFile("/lonelynation/ChunkData.json", WorldData.class);
+                    WorldData worldData = JsonFileManager.loadFile("/lonelynation/" + ServerInfo.getWorldID() +"/ChunkData.json", WorldData.class);
                     if (worldData == null) {
-                        JsonFileManager.createFile("/lonelynation/ChunkData.json",new WorldData());
+                        JsonFileManager.createFile("/lonelynation/" + ServerInfo.getWorldID() +"/ChunkData.json",new WorldData());
                     }
 
                     if (client.player != null){
                         long chunkID = client.player.getChunkPos().toLong();
                         worldData.claimedChunks.put(chunkID,new ChunkData());
-                        JsonFileManager.saveFile("/lonelynation/ChunkData.json",worldData);
+                        JsonFileManager.saveFile("/lonelynation/" + ServerInfo.getWorldID() +"/ChunkData.json",worldData);
 
                         ChunkPos chunk = new ChunkPos(chunkID);
                         context.getSource().sendFeedback(Text.literal("Claimed chunk "+
@@ -40,16 +41,16 @@ public class NationClaimCommand {
                         .then(argument("z",IntegerArgumentType.integer()))
                         .executes(context -> {
 
-                            WorldData worldData = JsonFileManager.loadFile("/lonelynation/ChunkData.json", WorldData.class);
+                            WorldData worldData = JsonFileManager.loadFile("/lonelynation/" + ServerInfo.getWorldID() +"/ChunkData.json", WorldData.class);
                             if (worldData == null) {
-                                JsonFileManager.createFile("/lonelynation/ChunkData.json",new WorldData());
+                                JsonFileManager.createFile("/lonelynation/" + ServerInfo.getWorldID() +"/ChunkData.json",new WorldData());
                             }
 
                             int x = IntegerArgumentType.getInteger(context, "x");
                             int z = IntegerArgumentType.getInteger(context,"z");
 
                             long chunkID = new ChunkPos(x >> 4,z >> 4).toLong();
-                            JsonFileManager.saveFile("/lonelynation/ChunkData.json",worldData);
+                            JsonFileManager.saveFile("/lonelynation/" + ServerInfo.getWorldID() +"/ChunkData.json",worldData);
 
                             ChunkPos chunk = new ChunkPos(chunkID);
                             context.getSource().sendFeedback(Text.literal("Claimed chunk "+

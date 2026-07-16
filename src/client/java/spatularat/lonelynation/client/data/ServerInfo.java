@@ -1,4 +1,4 @@
-package spatularat.lonelynation;
+package spatularat.lonelynation.client.data;
 
 import net.minecraft.client.MinecraftClient;
 
