@@ -1,4 +1,4 @@
-package spatularat.lonelynation.client.data;
+package spatularat.lonelynation.client.data.world;
 
 import java.util.HashMap;
 import java.util.Map;

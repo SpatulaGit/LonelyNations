@@ -9,10 +9,10 @@ import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.arg
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.ChunkPos;
-import spatularat.lonelynation.client.data.ChunkData;
+import spatularat.lonelynation.client.data.world.ChunkData;
 import spatularat.lonelynation.client.data.JsonFileManager;
-import spatularat.lonelynation.client.data.ServerInfo;
-import spatularat.lonelynation.client.data.WorldData;
+import spatularat.lonelynation.client.ServerInfo;
+import spatularat.lonelynation.client.data.world.WorldData;
 
 public class NationClaimCommand {
     public static LiteralArgumentBuilder<FabricClientCommandSource> create() {
