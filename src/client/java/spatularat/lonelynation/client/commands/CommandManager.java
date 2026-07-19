@@ -5,7 +5,7 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.minecraft.text.Text;
-import spatularat.lonelynation.ModInfo;
+import spatularat.lonelynation.client.ModInfo;
 
 public class CommandManager {
 	//add new commands here
@@ -20,7 +20,8 @@ public class CommandManager {
 					);
 					return 1;
 				})
-				.then(HelpCommand.create());
+				.then(HelpCommand.create())
+				.then(NationClaimCommand.create());
 	}
 
 	//DO NOT TOUCH

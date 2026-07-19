@@ -5,11 +5,13 @@ Lonely Nations is a Fabric Minecraft mod focused on simulating different governm
 ## Features
 
 Currently planned:\
--Nation creation\
+-~~Nation claiming per chunk~~\
+-~~Claimed chunk entity storage~~\
 -Nation management through commands\
 -Democracy simulation with AI\
--Config allowing user to choose their own AI or to not use AI\
--Democracy simulation without AI
+-Customizability using the config file\
+-Democracy simulation without AI\
+-Release onto Modrinth!
 
 ## Development Status
 
